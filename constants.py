@@ -2,8 +2,8 @@ from enum import Enum
 
 
 class SuccessFailure(Enum):
-    SUCCESS = 0
-    FAILURE = 1
+    SUCCESS = 1
+    FAILURE = 0
 
 
 class Sex(Enum):

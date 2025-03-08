@@ -47,7 +47,7 @@ class RandomForestModel:
         selected_trees = random.sample(self._model.estimators_, n)
 
         # Create subplots
-        figsize = (60, 20)
+        figsize = (19, 6)
         fig, axes = plt.subplots(1, n, figsize=figsize)
 
         if n == 1:

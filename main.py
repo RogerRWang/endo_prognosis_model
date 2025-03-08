@@ -27,11 +27,10 @@ def main():
     print(f"Num resident: {num_resident}")
     print(f"Num faculty: {num_faculty}")
 
-    # processed_data = feature_selection.remove_feature(processed_data, 'Sealer Puff')
-    # processed_data = feature_selection.remove_feature(processed_data, 'Practice Level')
-    # processed_data = feature_selection.remove_feature(processed_data, 'Diabetes')
-    # processed_data = feature_selection.remove_feature(processed_data, 'Pre Op Sinus Tract')
-    # processed_data = feature_selection.remove_feature(processed_data, 'Separated Files')
+    processed_data = feature_selection.remove_feature(processed_data, 'Practice Level')
+    processed_data = feature_selection.remove_feature(processed_data, 'Sex')
+    processed_data = feature_selection.remove_feature(processed_data, 'Diabetes')
+    processed_data = feature_selection.remove_feature(processed_data, 'Separated Files')
 
     # Do any EDA
     chart_data = processed_data.copy()
@@ -76,7 +75,7 @@ def main():
         X_train=X_train,
         y_train=y_train,
         criterion='gini',
-        max_depth=3,
+        max_depth=5,
         random_state=42
     )
     decision_tree.cross_validation(processed_data)
@@ -96,7 +95,7 @@ def main():
         y_train=y_train,
         criterion='gini',
         n_estimators=30,
-        max_depth=3,
+        max_depth=5,
         random_state=42
     )
     random_forest.cross_validation(processed_data)
@@ -105,7 +104,7 @@ def main():
     accuracy = training.accuracy_score(y_true=y_test, y_pred=y_pred)
     print(f"Random Forest Accuracy: {accuracy}")
 
-    random_forest.visualize(n=5)
+    random_forest.visualize(n=1)
 
     analysis.get_ppv_and_npv(y_pred, y_test, 'random_forest')
 
@@ -128,7 +127,7 @@ def main():
     accuracy = training.accuracy_score(y_true=y_test, y_pred=y_pred)
     print(f"Gradient Boost Accuracy: {accuracy}")
 
-    gradient_boost.visualize(n=5)
+    gradient_boost.visualize(n=1)
 
     analysis.get_ppv_and_npv(y_pred, y_test, 'gradient_boost')
 

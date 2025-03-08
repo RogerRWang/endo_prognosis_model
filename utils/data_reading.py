@@ -24,6 +24,14 @@ def process_raw_data(path: str) -> pd.DataFrame:
     """
     data = read_excel(path)
 
+    # Make success 1 and failure 0 instead of other way around
+    data["Success vs. Failure"] = data["Success vs. Failure"].map(
+        {
+            0: 1,
+            1: 0
+        }
+    )
+
     # Clean column names
     data = data.rename(columns={"Satisfactory Coronal Restoration ": "Satisfactory Coronal Restoration"})
     data = data.rename(columns={"Root Fill Density ": "Root Fill Density"})

@@ -54,7 +54,7 @@ class GradientBoostModel:
 
     def visualize(self, n: int):
         # Create subplots
-        figsize = (60, 20)
+        figsize = (19, 6)
         fig, axes = plt.subplots(1, n, figsize=figsize)
 
         if n == 1:
@@ -66,7 +66,7 @@ class GradientBoostModel:
             plot_tree(tree_model, feature_names=self._X_train_cleaned.columns, class_names=['Success', 'Failure'], filled=True, ax=axes[i], fontsize=6)
             axes[i].set_title(f'Tree {i + 1}')
 
-        plt.tight_layout()
+        # plt.tight_layout()
         plt.savefig('./output/visualizations/gradient_boost_trees.svg', format='svg')
 
         # Visualize Feature Importances
