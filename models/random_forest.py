@@ -55,11 +55,11 @@ class RandomForestModel:
 
         # Plot each selected tree
         for i, (tree_model, ax) in enumerate(zip(selected_trees, axes)):
-            plot_tree(tree_model, feature_names=self._X_train.columns, class_names=['Success', 'Failure'], filled=True, ax=ax)
+            plot_tree(tree_model, feature_names=self._X_train.columns, class_names=['Success', 'Failure'], filled=True, ax=ax, fontsize=6)
             ax.set_title(f'Tree {i + 1}')
 
         plt.tight_layout()
-        plt.savefig('./output/visualizations/random_forest.png')
+        plt.savefig('./output/visualizations/random_forest.svg', format='svg')
 
         # Visualize Feature Importances
         importances = self._model.feature_importances_

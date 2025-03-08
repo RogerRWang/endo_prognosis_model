@@ -7,7 +7,7 @@ from utils import feature_selection, data_reading, training, eda, analysis
 
 def main():
     # Process data
-    processed_data = data_reading.process_raw_data("./data/raw/Final Combined Data.xlsx")
+    processed_data = data_reading.process_raw_data("./data/raw/Final Combined Data 2.xlsx")
     print("Raw Data processed!")
     total_cases = len(processed_data)
     print(f"Total cases: {total_cases}")
@@ -27,11 +27,11 @@ def main():
     print(f"Num resident: {num_resident}")
     print(f"Num faculty: {num_faculty}")
 
-    processed_data = feature_selection.remove_feature(processed_data, 'Sealer Puff')
-    processed_data = feature_selection.remove_feature(processed_data, 'Practice Level')
-    processed_data = feature_selection.remove_feature(processed_data, 'Diabetes')
-    processed_data = feature_selection.remove_feature(processed_data, 'Pre Op Sinus Tract')
-    processed_data = feature_selection.remove_feature(processed_data, 'Separated Files')
+    # processed_data = feature_selection.remove_feature(processed_data, 'Sealer Puff')
+    # processed_data = feature_selection.remove_feature(processed_data, 'Practice Level')
+    # processed_data = feature_selection.remove_feature(processed_data, 'Diabetes')
+    # processed_data = feature_selection.remove_feature(processed_data, 'Pre Op Sinus Tract')
+    # processed_data = feature_selection.remove_feature(processed_data, 'Separated Files')
 
     # Do any EDA
     chart_data = processed_data.copy()
