@@ -63,7 +63,7 @@ class GradientBoostModel:
         # Plot the first n trees in order
         for i in range(n):
             tree_model = self._model.estimators_[i, 0]  # Get the i-th tree
-            plot_tree(tree_model, feature_names=self._X_train_cleaned.columns, class_names=['Success', 'Failure'], filled=True, ax=axes[i], fontsize=6)
+            plot_tree(tree_model, feature_names=self._X_train_cleaned.columns, class_names=['Failure', 'Success'], filled=True, ax=axes[i], fontsize=6)
             axes[i].set_title(f'Tree {i + 1}')
 
         # plt.tight_layout()

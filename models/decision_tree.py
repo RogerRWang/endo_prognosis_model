@@ -39,7 +39,7 @@ class DecisionTreeModel:
 
     def visualize(self):
         plt.figure(figsize=(19, 6))
-        tree.plot_tree(self._model, feature_names=self._X_train.columns, class_names=['Success', 'Failure'], filled=True, fontsize=6)
+        tree.plot_tree(self._model, feature_names=self._X_train.columns, class_names=['Failure', 'Success'], filled=True, fontsize=6)
         plt.savefig('./output/visualizations/decision_tree.svg', format='svg')
 
         # Visualize Feature Importances

@@ -55,7 +55,7 @@ class RandomForestModel:
 
         # Plot each selected tree
         for i, (tree_model, ax) in enumerate(zip(selected_trees, axes)):
-            plot_tree(tree_model, feature_names=self._X_train.columns, class_names=['Success', 'Failure'], filled=True, ax=ax, fontsize=6)
+            plot_tree(tree_model, feature_names=self._X_train.columns, class_names=['Failure', 'Success'], filled=True, ax=ax, fontsize=6)
             ax.set_title(f'Tree {i + 1}')
 
         plt.tight_layout()

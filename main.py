@@ -33,13 +33,26 @@ def main():
     processed_data = feature_selection.remove_feature(processed_data, 'Separated Files')
 
     # Do any EDA
+    # Sealer Puff, Satisfactory Coronal Restoration, Age during Tx, Follow-up time
     chart_data = processed_data.copy()
     chart_data["Tooth Type"] = chart_data["Tooth Type"].map(lambda x: ToothType(x).name)
-    eda.create_barchart_for_feature_and_target(chart_data, "Tooth Type", "Success vs. Failure", True)
+    eda.create_barchart_for_feature_and_target(chart_data, "Tooth Type", "Success vs. Failure", False)
 
     chart_data = processed_data.copy()
     chart_data["Sealer Type"] = chart_data["Sealer Type"].map(lambda x: SealerType(x).name)
-    eda.create_barchart_for_feature_and_target(chart_data, "Sealer Type", "Success vs. Failure", True)
+    eda.create_barchart_for_feature_and_target(chart_data, "Sealer Type", "Success vs. Failure", False)
+
+    chart_data = processed_data.copy()
+    eda.create_barchart_for_feature_and_target(chart_data, "Sealer Puff", "Success vs. Failure", False, False, True)
+
+    chart_data = processed_data.copy()
+    eda.create_barchart_for_feature_and_target(chart_data, "Satisfactory Coronal Restoration", "Success vs. Failure", False, False, True)
+
+    eda.calculate_odds_ratio(processed_data, "Sealer Puff", "Success vs. Failure")
+    eda.calculate_odds_ratio(processed_data, "Satisfactory Coronal Restoration", "Success vs. Failure")
+
+    eda.calculate_point_biserial_corr(processed_data, "Age during Tx", "Success vs. Failure")
+    eda.calculate_point_biserial_corr(processed_data, "Follow-up Time (Months)", "Success vs. Failure")
 
     # Calculate correlations/chi square matrix
     feature_selection.get_correlation_matrix(processed_data, method="pearson")

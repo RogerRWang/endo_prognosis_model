@@ -4,3 +4,4 @@ matplotlib
 Jinja2
 scipy
 scikit-learn
+statsmodels
